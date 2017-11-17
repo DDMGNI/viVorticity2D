@@ -1,0 +1,76 @@
+
+[grid]
+
+# number of timesteps
+nt = 100
+
+# number of spatial grid points in x
+nx = 101
+
+# number of spatial grid points in y
+ny = 101
+
+# length of timestep
+ht = 0.01
+
+# spatial domain in x
+Lx = 1.0
+x1 = 0.0
+x2 = 0.0
+
+# spatial domain in y
+Ly = 1.0
+y1 = 0.0
+y2 = 0.0
+
+
+[solver]
+
+# run in linear mode (with prescribed streaming function phi)
+# or in nonlinear mode (solving the Poisson equation for phi)
+nonlinear = True
+
+# PETSc linear solver type
+petsc_ksp_type = gmres
+
+# PETSc linear solver relative convergence tolerance
+# (relative decrease in the residual norm)
+petsc_ksp_rtol = 1e-07
+
+# PETSc linear solver absolute convergence tolerance
+# (absolute size of the residual norm)
+petsc_ksp_atol = 1e-10
+
+# PETSc linear solver maximum number of iterations
+petsc_ksp_max_iter = 1000
+
+# PETSC nonlinear solver absolute convergence tolerance
+petsc_snes_rtol = 1e-20
+
+# PETSC nonlinear solver relative convergence tolerance
+petsc_snes_atol = 1e-12
+
+# PETSC nonlinear solver convergence tolerance in terms
+# of the norm of the change in the solution between steps
+petsc_snes_stol = 1e-14
+
+# PETSC nonlinear solver maximum number of iterations
+petsc_snes_max_iter = 20
+
+
+[initial_data]
+
+# python script with init functions 
+python = None
+
+
+[io]
+
+# restart run from hdf5 file, not implemented yet
+hdf5_input = None
+
+# write data to hdf5 file
+hdf5_output = None
+
+# save every nsave'th timestep
+nsave = 1
