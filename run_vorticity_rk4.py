@@ -390,7 +390,7 @@ class petscMHD2D(object):
     
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='PETSc MHD Solver in 2D')
+    parser = argparse.ArgumentParser(description='PETSc Vorticity Solver in 2D (explicit RK4 time stepping)')
     parser.add_argument('runfile', metavar='runconfig', type=str,
                         help='Run Configuration File')
     
