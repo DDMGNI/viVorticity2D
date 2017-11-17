@@ -63,8 +63,8 @@ The `examples` directory contains various test problems, including all runs from
 ## Reference
 
 _Michael Kraus, Omar Maj_. Variational Integrators for Nonvariational Partial Differential Equations. Physica D: Nonlinear Phenomena, Volume 310, Pages 37-71, 2015.
-[arXiv:1412.2011](https://arxiv.org/abs/1412.2011),
-[Journal](https://dx.doi.org/10.1016/j.physd.2015.08.002)
+[Journal](https://dx.doi.org/10.1016/j.physd.2015.08.002),
+[arXiv:1412.2011](https://arxiv.org/abs/1412.2011).
 
 
 ## License
