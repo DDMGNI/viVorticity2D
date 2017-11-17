@@ -6,7 +6,7 @@ Created on Jul 10, 2012
 
 cimport numpy as np
 
-from petsc4py.PETSc cimport DMDA, Mat, SNES, Vec
+from petsc4py.PETSc cimport Mat, SNES, Vec
 
 
 cdef class PETScVorticity(object):
@@ -20,7 +20,7 @@ cdef class PETScVorticity(object):
     
     cdef np.float64_t arakawa_factor
     
-    cdef DMDA da1
+    cdef object da1
     
     cdef Vec Pp
     cdef Vec Oh

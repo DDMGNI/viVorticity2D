@@ -9,7 +9,7 @@ cimport cython
 import  numpy as np
 cimport numpy as np
 
-from petsc4py.PETSc cimport DMDA, Vec
+from petsc4py.PETSc cimport Vec
 
 
 cdef class PETScDerivatives(object):
@@ -18,7 +18,7 @@ cdef class PETScDerivatives(object):
     '''
     
     
-    def __cinit__(self, DMDA da1,
+    def __cinit__(self, object da1,
                   np.uint64_t  nx, np.uint64_t  ny,
                   np.float64_t ht, np.float64_t hx, np.float64_t hy):
         '''

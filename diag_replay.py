@@ -7,7 +7,7 @@ Created on Apr 06, 2012
 import argparse
 import matplotlib
 
-from diagnostics import Diagnostics 
+from vorticity.diagnostics      import Diagnostics
 
 
 class replay(object):
@@ -67,11 +67,11 @@ if __name__ == '__main__':
     
     if args.o == True:
         matplotlib.use('AGG')
-        from plot import PlotVorticity2D
+        from vorticity.plot.plot_replay import PlotVorticity2D
         pyvp = replay(args.hdf5_file, args.np, args.nt, output=True, contours=args.c)
         pyvp.run()
     else:
-        from plot import PlotVorticity2D
+        from vorticity.plot.plot_replay import PlotVorticity2D
         pyvp = replay(args.hdf5_file, args.np, args.nt, output=False, contours=args.c)
     
         print

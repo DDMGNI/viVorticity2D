@@ -11,7 +11,7 @@ cimport numpy as np
 
 from petsc4py import PETSc
 
-from petsc4py.PETSc cimport DMDA, SNES, Mat, Vec
+from petsc4py.PETSc cimport SNES, Mat, Vec
 
 
 cdef class PETScVorticity(object):
@@ -20,7 +20,7 @@ cdef class PETScVorticity(object):
     built on top of the SciPy Sparse package.
     '''
     
-    def __init__(self, DMDA da1,
+    def __init__(self, object da1,
                  np.uint64_t nx, np.uint64_t ny,
                  np.float64_t ht, np.float64_t hx, np.float64_t hy):
         '''

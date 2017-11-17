@@ -24,7 +24,7 @@ class Diagnostics(object):
         assert self.hdf5 != None
         
         
-        self.tGrid = self.hdf5['t'][:,0,0]
+        self.tGrid = self.hdf5['t'][:]
         self.xGrid = self.hdf5['x'][:]
         self.yGrid = self.hdf5['y'][:]
         

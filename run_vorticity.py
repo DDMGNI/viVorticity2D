@@ -14,11 +14,11 @@ import time
 
 import numpy as np
 
-from config import Config
+from vorticity.config import Config
 
-from PETScDerivatives  import PETScDerivatives
-from PETScPoisson      import PETScPoisson
-from PETScVorticity    import PETScVorticity
+from vorticity.solvers.PETScDerivatives  import PETScDerivatives
+from vorticity.solvers.PETScPoisson      import PETScPoisson
+from vorticity.solvers.PETScVorticity    import PETScVorticity
 
 
 class petscMHD2D(object):
@@ -232,7 +232,7 @@ class petscMHD2D(object):
 #             self.poisson_ksp.getPC().setType('hypre')
             self.poisson_ksp.getPC().setType('lu')
             self.poisson_ksp.getPC().setFactorSolverPackage('superlu_dist')
-            self.poisson_ksp.setNullSpace(self.poisson_nullspace)
+#            self.poisson_ksp.setNullSpace(self.poisson_nullspace)
         
             self.poisson.formMat(self.poisson_mat)
         
@@ -271,7 +271,7 @@ class petscMHD2D(object):
         
         O_arr = self.da1.getVecArray(self.O)
         
-        init_data = __import__("runs." + cfg['initial_data']['python'], globals(), locals(), ['vorticity'], 0)
+        init_data = __import__("examples." + cfg['initial_data']['python'], globals(), locals(), ['vorticity'], 0)
         
         txGrid, tyGrid = np.meshgrid(xGrid, yGrid)
         txGrid = txGrid.T
@@ -288,9 +288,8 @@ class petscMHD2D(object):
             # compute initial streaming function
             self.poisson.updateVorticity(self.O)
             self.poisson.formRHS(self.Pb)
-#             self.poisson_nullspace.remove(self.Pb)
+            self.poisson_nullspace.remove(self.Pb)
             self.poisson_ksp.solve(self.Pb, self.P)
-#             self.poisson_nullspace.remove(self.P)
             
             self.poisson.function(self.P, self.Pf)
             pnorm = self.Pf.norm()
@@ -304,7 +303,7 @@ class petscMHD2D(object):
             # compute streaming function from input
             P_arr = self.da1.getVecArray(self.P)
             
-            init_data = __import__("runs." + cfg['initial_data']['python'], globals(), locals(), ['streaming_function'], 0)
+            init_data = __import__("examples." + cfg['initial_data']['python'], globals(), locals(), ['streaming_function'], 0)
             
             P_arr[xs:xe, ys:ye] = init_data.streaming_function(txGrid[xs:xe, ys:ye], tyGrid[xs:xe, ys:ye], Lx, Ly)
             
@@ -381,9 +380,8 @@ class petscMHD2D(object):
                     # build RHS and solve Poisson equation
                     self.poisson.updateVorticity(self.O)
                     self.poisson.formRHS(self.Pb)
-#                     self.poisson_nullspace.remove(self.Pb)
+                    self.poisson_nullspace.remove(self.Pb)
                     self.poisson_ksp.solve(self.Pb, self.P)
-#                     self.poisson_nullspace.remove(self.P)
                     self.poisson.function(self.P, self.Pf)
 
                     pnorm = self.Pf.norm()
