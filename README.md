@@ -55,6 +55,10 @@ optional arguments:
 The `examples` directory contains various test problems, including all runs from the paper (see reference below).
 
 
+## Example Simulations
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLyiyWhorv9bnKolGYGCnJFgmfa_tVKk9Z" frameborder="0" gesture="media" allowfullscreen></iframe>
+
 
 ## Reference
 
