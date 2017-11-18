@@ -57,7 +57,7 @@ The `examples` directory contains various test problems, including all runs from
 
 ## Example Simulations
 
-[![viVorticity2D Example Simulations](https://img.youtube.com/vi/8QZiP3T9kwU/0.jpg)](https://www.youtube.com/playlist?list=PLyiyWhorv9bnKolGYGCnJFgmfa_tVKk9Z)
+[![viVorticity2D Example Simulations](https://img.youtube.com/vi/tt6bUPqPh9E/0.jpg)](https://www.youtube.com/playlist?list=PLyiyWhorv9bnKolGYGCnJFgmfa_tVKk9Z)
 
 
 ## Reference
